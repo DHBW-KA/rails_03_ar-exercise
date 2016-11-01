@@ -1,0 +1,31 @@
+= form_for @user, html: {class: "ui form"} do |f|
+  - if @user.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      ul
+        - @user.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :bank
+    = f.collection_select :bank_ids, Bank.all.pluck(:id, :name), :first, :second
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :email
+    = f.email_field :email
+  - if @user.new_record?
+    .field
+      = f.label :email_confirmation
+      = f.email_field :email_confirmation
+  .field
+    = f.label :password
+    = f.password_field :password
+  .field
+    = f.label :street
+    = f.text_field :street
+  .field
+    = f.label :city
+    = f.text_field :city
+  .actions = f.submit

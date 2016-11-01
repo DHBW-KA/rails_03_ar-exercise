@@ -1,0 +1,18 @@
+= form_for @bank, html: {class: "ui form"} do |f|
+  - if @bank.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@bank.errors.count, "error")} prohibited this bank from being saved:"
+      ul
+        - @bank.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :city
+    = f.text_field :city
+  .field
+    = f.label :bic
+    = f.text_field :bic
+  .actions = f.submit

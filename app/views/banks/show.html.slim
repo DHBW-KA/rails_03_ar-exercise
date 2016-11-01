@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @bank.name
+p
+  strong City:
+  = @bank.city
+p
+  strong Bic:
+  = @bank.bic
+
+= link_to 'Edit', edit_bank_path(@bank)
+'|
+= link_to 'Back', banks_path

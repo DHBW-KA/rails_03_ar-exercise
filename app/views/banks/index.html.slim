@@ -1,0 +1,25 @@
+h1 Listing banks
+
+table.ui.table
+  thead
+    tr
+      th Name
+      th City
+      th Bic
+      th
+      th
+      th
+
+  tbody
+    - @banks.each do |bank|
+      tr
+        td = bank.name
+        td = bank.city
+        td = bank.bic
+        td = link_to 'Show', bank
+        td = link_to 'Edit', edit_bank_path(bank)
+        td = link_to 'Destroy', bank, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Bank', new_bank_path
