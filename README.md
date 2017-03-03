@@ -1,9 +1,9 @@
-= Online-Banking
+# Online-Banking
 
-=== Setup
+### 0. Setup
 `./bin/setup`
 
-=== 1. Erzeuge die Migrationen für folgende Datenmodelle. 
+### 1. Erzeuge die Migrationen für folgende Datenmodelle. 
 Lege auch die Join-Tabellen an, wenn nötig.
 * Bank: name, city, bic
 * User: email, password, name, street, city
@@ -13,7 +13,7 @@ Lege auch die Join-Tabellen an, wenn nötig.
 
 [Active Record - Migrations](http://guides.rubyonrails.org/active_record_migrations.html)
 
-=== 2. Erstelle die Modelle und die Beziehungen zwischen den Modellen
+### 2. Erstelle die Modelle und die Beziehungen zwischen den Modellen
 * Bank:
   * <tt>has_many :accounts</tt>
   * <tt>has_many :users, through: :accounts</tt>
@@ -27,9 +27,10 @@ Lege auch die Join-Tabellen an, wenn nötig.
 
 [Active Record - Associations](http://edgeguides.rubyonrails.org/association_basics.html)
 
-=== 3. Lege zu jeder Beziehung auch die "Rückwärts-Relation" an. 
+### 3. Lege zu jeder Beziehung auch die "Rückwärts-Relation" an. 
 Bei der Beziehung BookEntry<->Account und ist besondere Vorsicht geboten.
-=== 4. Schreibe Validations für
+
+### 4. Schreibe Validations für
 * Bank
   * Name ist Pflichtfeld
   * BIC muss folgendem Ausdruck entsprechen: <tt>/\A([a-zA-Z]){4}([a-zA-Z]){2}([0-9a-zA-Z]){2}([0-9a-zA-Z]{3})?\z/</tt>
@@ -45,9 +46,9 @@ Bei der Beziehung BookEntry<->Account und ist besondere Vorsicht geboten.
   * Quelle und Ziel muss gesetzt sein
 
 [Active Record - Validations](http://edgeguides.rubyonrails.org/active_record_validations.html)
-=== 5. Callback & Transaction
+### 5. Callback & Transaction
 Stelle sicher, dass eine Überweisung sich auf beide Accounts auswirkt. Stichworte Callback & Transaktion.
 
-=== 7. Bonus?
+### 7. Bonus?
 * Wie kann Geld "erzeugt" werden, wenn alle Konten bei 0 starten und kein Konto überzogen werden darf?
 * Welche offensichtliche Schwachstellen existieren in diesem System (abgesehen vom fehlenden Login-Mechanismus)?
