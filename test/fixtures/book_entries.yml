@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  amount: 1
+  account_from: one
+  account_to: two
+
+two:
+  description: MyString
+  amount: 1
+  account_from: two
+  account_to: one

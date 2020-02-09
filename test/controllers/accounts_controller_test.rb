@@ -1,0 +1,46 @@
+require 'test_helper'
+
+class AccountsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @account = accounts(:one)
+  end
+
+  test "should get index" do
+    get accounts_url
+    assert_response :success
+    assert_not_nil assigns(:accounts)
+  end
+
+  test "should get new" do
+    get new_account_url
+    assert_response :success
+  end
+
+  test "should create account" do
+    assert_difference('Account.count') do
+      post accounts_url, params: {account: {balance: @account.balance, bank_id: @account.bank.id, user_id: users(:one).id}}
+      assert_equal({}, assigns(:account).errors.messages)
+    end
+
+    assert_redirected_to account_url(assigns(:account))
+  end
+
+  test "should get edit" do
+    get edit_account_url(@account)
+    assert_response :success
+  end
+
+  test "should update account" do
+    patch account_url(@account), params: {account: {balance: @account.balance, bank_id: @account.bank.id}}
+    assert_equal({}, assigns(:account).errors.messages)
+    assert_redirected_to account_url(assigns(:account))
+  end
+
+  test "should destroy account" do
+    assert_difference('Account.count', -1) do
+      delete account_url(@account)
+    end
+
+    assert_redirected_to accounts_url
+  end
+end
