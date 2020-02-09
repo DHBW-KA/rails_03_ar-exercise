@@ -1,0 +1,33 @@
+h1 Listing users
+
+table.ui.table
+  thead
+    tr
+      th Email
+      th Password
+      th Name
+      th Street
+      th City
+      th
+      th
+      th
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.email
+        td = user.password
+        td = user.name
+        td = user.street
+        td = user.city
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_path(user)
+        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td
+          - user.accounts.each_with_index do |account, index|
+            = link_to "Account #{index}", book_entries_path(account_id: account.id)
+
+br
+
+= link_to 'New User', new_user_path
