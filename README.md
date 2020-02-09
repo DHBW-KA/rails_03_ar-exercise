@@ -28,7 +28,7 @@ Lege auch die Join-Tabellen an, wenn nötig.
 [Active Record - Associations](http://edgeguides.rubyonrails.org/association_basics.html)
 
 ### 3. Lege zu jeder Beziehung auch die "Rückwärts-Relation" an. 
-Bei der Beziehung BookEntry<->Account und ist besondere Vorsicht geboten.
+Bei der Beziehung BookEntry<->Account ist besondere Vorsicht geboten.
 
 ### 4. Schreibe Validations für
 * Bank
